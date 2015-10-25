@@ -1,0 +1,14 @@
+{
+  "name": "activitylog",
+  "version": "0.1.0",
+  "description": "visualize my activity",
+  "author": "TOYOTA Misaki",
+  "dependencies": {
+    "moment": "^2.10.6",
+    "xml2js": "^0.4.12"
+  },
+  "bin": {
+    "updatelog": "update_log.js",
+    "diary": "create_diary_to_dayone.js"
+  }
+}
