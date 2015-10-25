@@ -32,7 +32,6 @@ var log = null,
   formattedDateTime = null;
 
 var iftttDateFormat = /[a-zA-z].+[ ]+\d{1,2},[ ]+\d{4}/g;
-var dateFormat = /\d{4}-\d{2}-\d{2}/g;
 
 for (var log of rawLogArray) {
   ar = log.split(":::");
@@ -42,7 +41,7 @@ for (var log of rawLogArray) {
     tmpDate = new Date(tmpDateArray[0]);
     tmpDateTime = tmpDate.getFullYear() + "-" + (tmpDate.getMonth() + 1) + "-" + tmpDate.getDate() + " " + tmpDateArray[1];
     formattedDateTime = moment(tmpDateTime, "YYYY-MM-D hh:mmA");
-  } else if (ar[1].match(dateFormat)) {
+  } else {
     formattedDateTime = moment(ar[1]);
   };
   jsonData = {
@@ -56,7 +55,7 @@ for (var log of rawLogArray) {
 logJsonArray.sort(function(a, b) {
   return (a.datetime > b.datetime ? 1 : -1);
 })
-
+//console.log(logJsonArray)
 console.log("----");
 console.log("update log.json file: " + LOG_JSON_FILENAME);
 fs.writeFileSync(LOG_JSON_FILENAME, JSON.stringify(logJsonArray, null, 2));
