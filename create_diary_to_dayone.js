@@ -97,7 +97,7 @@ todayFilteredLog.sort(function(a, b) {
   if (a.datetime < b.datetime) return -1;
   if (a.datetime > b.datetime) return 1;
 });
-console.log(todayFilteredLog);
+//console.log(todayFilteredLog);
 
 var table = ["|  |", "|---|"];
 var tmpStr = "";
@@ -125,7 +125,7 @@ table = table.join("\n");
 
 var entryText =
   '# 今日のまとめ' + '\n' +
-  '## graph' + '\n' +
+  '### 1週間のまとめ' + '\n' +
   table + '\n\n***\n\n';
 
 var projectSortedLog = {}
